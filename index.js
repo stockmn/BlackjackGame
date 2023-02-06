@@ -11,8 +11,11 @@ let cardEl=document.querySelector("#card-el")
 
 // 2. Create a startGame() function. Move the conditional
 // below (line 11-20) inside the body of the function.
+function startGame(){
+    renderGame()
+}
 
-function startGame() {
+function renderGame() {
     cardEl.textContent="Cards: "+firstCard +" "+secondCard
     sumEl.textContent="Sum: "+sum
     if (sum <= 20) {
@@ -28,9 +31,9 @@ function startGame() {
     console.log(message)    
 }
 function newCard(){
-    console.log("Hello Bonface Maina")
+    console.log("Drawing a new card from the deck!")
     let card=6
     sum += card
-    startGame()
+    renderGame()
 
 }
