@@ -1,6 +1,6 @@
 
-let firstCard = 10
-let secondCard = 4
+let firstCard = getRandomCard()
+let secondCard = getRandomCard()
 let cards=[firstCard,secondCard]
 let sum = firstCard + secondCard
 let hasBlackJack = false
@@ -9,6 +9,10 @@ let message = "message-el"
 let messageEL=document.getElementById("message-el")
 let sumEl=document.querySelector("#sum-el")
 let cardEl=document.querySelector("#card-el")
+function getRandomCard(){
+    let flooredNumber=Math.floor(Math.random()*10)
+    return flooredNumber
+}
 
 // 2. Create a startGame() function. Move the conditional
 // below (line 11-20) inside the body of the function.
@@ -37,7 +41,7 @@ function renderGame() {
 }
 function newCard(){
     console.log("Drawing a new card from the deck!")
-    let card=6
+    let card=getRandomCard()
     sum += card
     cards.push(card)
     renderGame()
