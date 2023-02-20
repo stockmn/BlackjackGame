@@ -1,22 +1,33 @@
 
-let firstCard = getRandomCard()
-let secondCard = getRandomCard()
-let cards=[firstCard,secondCard]
-let sum = firstCard + secondCard
+
+let cards=[]
+let sum = 0
 let hasBlackJack = false
 let isAlive = true
 let message = "message-el"
 let messageEL=document.getElementById("message-el")
 let sumEl=document.querySelector("#sum-el")
 let cardEl=document.querySelector("#card-el")
+let playerEl=document.querySelector("#player-el")
 function getRandomCard(){
-    let flooredNumber=Math.floor(Math.random()*10)
-    return flooredNumber
+    let randomNumber=Math.floor(Math.random()*13)+1
+    if(randomNumber>10){
+        return 10
+    }
+    else if(randomNumber === 1){
+        return 11
+    }
+    else {
+        return randomNumber
+    }   
 }
-
-// 2. Create a startGame() function. Move the conditional
-// below (line 11-20) inside the body of the function.
 function startGame(){
+    isAlive = true
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    cards = [firstCard,secondCard]
+    sum = firstCard + secondCard
+    
     renderGame()
 }
 
@@ -40,10 +51,14 @@ function renderGame() {
     console.log(message)    
 }
 function newCard(){
-    console.log("Drawing a new card from the deck!")
-    let card=getRandomCard()
-    sum += card
-    cards.push(card)
-    renderGame()
+    if((isAlive === true) && (hasBlackJack === false)){
+        console.log("Drawing a new card from the deck!")
+        let card=getRandomCard()
+        sum += card
+        cards.push(card)
+        renderGame()
 
+
+    }
+    
 }
