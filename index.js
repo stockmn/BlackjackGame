@@ -8,7 +8,14 @@ let message = "message-el"
 let messageEL=document.getElementById("message-el")
 let sumEl=document.querySelector("#sum-el")
 let cardEl=document.querySelector("#card-el")
+let player={
+     name :"Bonface",
+     chips : 145
+
+}
+
 let playerEl=document.querySelector("#player-el")
+playerEl.textContent = player.name + ":  $"+ player.chips
 function getRandomCard(){
     let randomNumber=Math.floor(Math.random()*13)+1
     if(randomNumber>10){
